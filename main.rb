@@ -51,6 +51,7 @@ end
 
 #初期値設定
 notification_type = ARGV[0] || 'mac'
+puts_error_message("'slack' or 'mac'を入力して下さい") if nil == (notification_type =~ /\A(slack|mac)+\z/)
 postal_code = ARGV[1] || '1070062'
 want_price = ARGV[2] || 1000
 puts_error_message("希望配送手数料は数字で入力してください。") if nil == (want_price =~ /\A[0-9]+\z/)
