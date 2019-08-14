@@ -82,7 +82,7 @@ Chromeドライバは以下のURLより取得できます。
 
 `$ brew install chromedriver`
 
-`Homebrew`が入っていない方はこちらから
+`Homebrew`が入っていない方はこちらからインストールを行ってください。
 
 [http://brew.sh/index_ja.html](http://brew.sh/index_ja.html)
 
