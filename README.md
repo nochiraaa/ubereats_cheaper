@@ -1,10 +1,10 @@
 UBEREATS CHEAPER
 ====
 
-## Overview
+## 概要
 UBER EATSで指定したレストランの配送料が安くなったら教えてくれる通知アプリケーションです
 
-## Description
+## 詳細
 Rubyプログラムです。今のところMac専用です。ヘッドレスです。
 
 
@@ -20,7 +20,7 @@ Rubyプログラムです。今のところMac専用です。ヘッドレスで�
 (他のサービス、`windows`などは要望があれば作ろうかなと思います。)
 
 
-## Requirement
+## 必要なツール・ライブラリ
 - Ruby(2.3.7)
 - bundler(2.0.2)
 - gem(2.5.2.3)
@@ -28,7 +28,7 @@ Rubyプログラムです。今のところMac専用です。ヘッドレスで�
 - chrome webdriver(ChromeDriver 76.0.3809.68 (420c9498db8ce8fcd190a954d51297672c1515d5-refs/branch-heads/3809@{#864}))
 
 
-## Usage
+## 使い方
 `$ ruby main.rb 引数1 引数2 引数3 引数4 引数5`
 
 - 引数1
@@ -50,7 +50,7 @@ Rubyプログラムです。今のところMac専用です。ヘッドレスで�
   - こちらを参考に、webhook urlを取得してください。一応このwebhook urlは後々削除されるとのことなので、反響があれば後々新しい方に切り替えようと思います。
 
 
-コマンド例
+### コマンド例
 
 `ruby main.rb 'slack' '107-0062' 'https://www.ubereats.com/ja-JP/tokyo/food-delivery/%E3%82%B7-%E3%82%A2%E3%83%AC%E3%82%A4-%E6%B8%8B%E8%B0%B7246%E5%BA%97-the-alley-shibuya-246/C7X1V9lWQ5KIoPq7YYLc4A/' 1000 'https://hooks.slack.com/services/hoge1/hoge2/hoge3'`
 
@@ -58,7 +58,7 @@ Rubyプログラムです。今のところMac専用です。ヘッドレスで�
 なお、`ruby main.rb`だけで実行すると、`slack`で、自分が最近よくいる`南青山`へ、大好きな`渋谷のジ アレイ（有名なタピオカミルクティーのお店）`の配送手数料が`1000円`（1000円を切ることが割と少ない）を切った時に通知が来るようになっています。
 
 
-## Install
+## インストール
 最初にRubyのインストールです（Macユーザーであれば最初から入っているので大丈夫ですね）
 
 最初に`gem`をインストールしましょう（Macユーザーであれば最初から入っているので大丈夫ですね）
@@ -95,13 +95,13 @@ Chromeドライバのバージョンは最新のものであれば問題なく�
 動作確認は`ChromeDriver 76.0.3809.68 (420c9498db8ce8fcd190a954d51297672c1515d5-refs/branch-heads/3809@{#864})`で行っています。
 
 
-## Contribution
+## コントリビューション
 ご自由にどうぞ
 
-## Licence
+## ライセンス
 
 [MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
 
-## Author
+## 著者
 
 [nochiraaa](https://github.com/nochiraaa)
