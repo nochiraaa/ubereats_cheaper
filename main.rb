@@ -12,7 +12,7 @@ slack_webhook_url = ARGV[4] || 'https://hooks.slack.com/services/T04S1SNKD/BLWGL
 ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
 options_args = { args: ['headless', 'disable-gpu', 'no-sandbox', 'disable-setuid-sandbox', 'disable-gpu', "user-agent=#{ua}"] }
 
-#Selenium 4 & Chrome <75
+#(Selenium 4 & Chrome <75)の記法
 options = Selenium::WebDriver::Chrome::Options.new(options: options_args)
 driver = Selenium::WebDriver.for :chrome, options: options
 
@@ -42,10 +42,10 @@ sleep 2
 	restautant_title = driver.find_element(:xpath, '//*[@id="wrapper"]/div[2]/div/div/div/div[2]/h1').text
 
 	if delivery_fee <= want_price
-		text = "#{Time.now.strftime('%H:%M')}の#{restautant_title}の配送手数料は#{delivery_fee}円だ！安いで！！頼むなら今や！"
+		text = "#{restautant_title}の配送手数料は#{delivery_fee}円だ！安いで！！頼むなら今や！"
 		
 		if notification_type == "slack"
-			notifier = Slack::Notifier.new(slack_webhook_url, channel: slack_channel_name)
+			notifier = Slack::Notifier.new(slack_webhook_url)
 			notifier.post text: text
 		elsif notification_type == "mac"
 			system("osascript -e 'display notification \"#{text}\" with title \"UBEREATS CHEAPER\" sound name \"Ping\"'")
@@ -53,8 +53,7 @@ sleep 2
 
 		break
 	else
-		puts "今の#{restautant_title}の配送手数料は#{delivery_fee}ですね・・・"
+		puts "#{restautant_title}の配送手数料は#{delivery_fee}ですね・・・"
 		sleep 300
-
 	end
 end
