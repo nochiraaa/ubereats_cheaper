@@ -10,7 +10,8 @@ restaurant_url = ARGV[3] || 'https://www.ubereats.com/ja-JP/tokyo/food-delivery/
 slack_webhook_url = ARGV[4] || 'https://hooks.slack.com/services/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' if notification_type == "slack"
 
 ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
-options_args = { args: ['headless', 'disable-gpu', 'no-sandbox', 'disable-setuid-sandbox', 'disable-gpu', "user-agent=#{ua}"] }
+# options_args = { args: ['headless', 'disable-gpu', 'no-sandbox', 'disable-setuid-sandbox', 'disable-gpu', "user-agent=#{ua}"] }
+options_args = { args: ['disable-gpu', 'no-sandbox', 'disable-setuid-sandbox', 'disable-gpu', "user-agent=#{ua}"] }
 
 #(Selenium 4 & Chrome <75)の記法
 options = Selenium::WebDriver::Chrome::Options.new(options: options_args)
