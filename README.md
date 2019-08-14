@@ -5,13 +5,13 @@ UBEREATS CHEAPER
 UBER EATSで指定したレストランの配送料が安くなったら教えてくれる通知アプリケーションです
 
 ## 詳細
-Rubyプログラムです。今のところMac専用です。ヘッドレスです。
+Rubyプログラムです。
 
-5分おきにデータを取得し、安くなったかどうかを判断しています。
+アクセス負荷がかからないくらいで5分おきにデータを取得し、安くなったかどうかを判断しています。
 
 通知方法は`Slack`と`Mac OS`の2つに対応しています。
 
-(他のサービス、`windows`などは要望があれば作ろうかなと思います。)
+(他のサービス、`windows`などは反響があれば作ろうかなと思います。)
 
 
 ## デモ画像
@@ -20,8 +20,8 @@ Rubyプログラムです。今のところMac専用です。ヘッドレスで�
 
 ## 必要なツール・ライブラリ
 - Ruby(2.3.7)
-- bundler(2.0.2)
 - gem(2.5.2.3)
+- bundler(2.0.2)
 - selenium-webdriver(3.142.3)
 - slack-notifier(2.3.2)
 - chrome webdriver(ChromeDriver 76.0.3809.68 (420c9498db8ce8fcd190a954d51297672c1515d5-refs/branch-heads/3809@{#864}))
@@ -60,11 +60,14 @@ ruby main.rb 'slack' 1070062 'https://www.ubereats.com/ja-JP/tokyo/food-delivery
 
 
 ## インストール
-1. Rubyのインストールです（Macユーザーであれば最初から入っているので大丈夫ですね）
+1. Cloneしてください
+`$ git clone git@github.com:nochiraaa/ubereats_cheaper.git`
 
-2. `gem`をインストールしましょう（Macユーザーであれば最初から入っているので大丈夫ですね）
+2. Rubyのインストールです（Macユーザーであれば最初から入っているので大丈夫ですね）
 
-3. 次に`bundler`をインストールしましょう
+3. `gem`をインストールしましょう（Macユーザーであれば最初から入っているので大丈夫ですね）
+
+4. 次に`bundler`をインストールしましょう
 
 `$ gem install bundler`
 
@@ -75,7 +78,7 @@ ruby main.rb 'slack' 1070062 'https://www.ubereats.com/ja-JP/tokyo/food-delivery
 `$ bundle install`
 
 
-4. Chromeドライバをインストール。以下のURLより取得できます。
+5. Chromeドライバをインストール。以下のURLより取得できます。
 
 [https://sites.google.com/a/chromium.org/chromedriver/downloads](https://sites.google.com/a/chromium.org/chromedriver/downloads)
 

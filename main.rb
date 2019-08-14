@@ -41,11 +41,11 @@ def send_notification(text, notification_type, slack_webhook_url = nil)
 	case notification_type
 
 	when "mac" then
-		system("osascript -e 'display notification \"#{text}\" with title \"UBEREATS CHEAPER\" sound name \"Ping\"'")
+		system("osascript -e 'display notification \"#{text}\" with title \"UberEATS CHEAPER\" sound name \"Ping\"'")
 	when "slack" then
 		Slack::Notifier.new(slack_webhook_url).post text: text
 	else
-		system("osascript -e 'display notification \"#{text}\" with title \"UBEREATS CHEAPER\" sound name \"Ping\"'")
+		system("osascript -e 'display notification \"#{text}\" with title \"UberEATS CHEAPER\" sound name \"Ping\"'")
 	end
 end
 
