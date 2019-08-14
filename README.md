@@ -7,13 +7,7 @@ UBER EATSで指定したレストランの配送料が安くなったら教え�
 ## 詳細
 Rubyプログラムです。今のところMac専用です。ヘッドレスです。
 
-
-引数に
-- お届け先住所の郵便番号
-- レストランの個別ページのURL
-- 希望配送手数料
-
-を与えるだけで、あとは安くなったら通知してくれます。
+5分おきにデータを取得し、安くなったかどうかを判断しています。
 
 通知方法は`Slack`と`Mac OS`の2つに対応しています。
 
@@ -41,6 +35,7 @@ Rubyプログラムです。今のところMac専用です。ヘッドレスで�
 
 - 引数3 UBEREATSのレストランのURL
   - ここにはレストランの個別ページのURLを入力してください。
+  - 例:https://www.ubereats.com/ja-JP/tokyo/food-delivery/%E3%82%B7-%E3%82%A2%E3%83%AC%E3%82%A4-%E6%B8%8B%E8%B0%B7246%E5%BA%97-the-alley-shibuya-246/C7X1V9lWQ5KIoPq7YYLc4A/
 
 - 引数4は希望配送手数料
   - 数字を入力してください。ここで入力した数字よりも配送手数料が低くなったら通知がきます。
@@ -52,7 +47,9 @@ Rubyプログラムです。今のところMac専用です。ヘッドレスで�
 
 ### コマンド例
 
-`ruby main.rb 'slack' '107-0062' 'https://www.ubereats.com/ja-JP/tokyo/food-delivery/%E3%82%B7-%E3%82%A2%E3%83%AC%E3%82%A4-%E6%B8%8B%E8%B0%B7246%E5%BA%97-the-alley-shibuya-246/C7X1V9lWQ5KIoPq7YYLc4A/' 1000 'https://hooks.slack.com/services/hoge1/hoge2/hoge3'`
+```
+ruby main.rb 'slack' '107-0062' 'https://www.ubereats.com/ja-JP/tokyo/food-delivery/%E3%82%B7-%E3%82%A2%E3%83%AC%E3%82%A4-%E6%B8%8B%E8%B0%B7246%E5%BA%97-the-alley-shibuya-246/C7X1V9lWQ5KIoPq7YYLc4A/' 1000 'https://hooks.slack.com/services/hoge1/hoge2/hoge3'
+```
 
 
 なお、`ruby main.rb`だけで実行すると、`slack`で、自分が最近よくいる`南青山`へ、大好きな`渋谷のジ アレイ（有名なタピオカミルクティーのお店）`の配送手数料が`1000円`（1000円を切ることが割と少ない）を切った時に通知が来るようになっています。
