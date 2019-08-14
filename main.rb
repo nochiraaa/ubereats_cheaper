@@ -26,11 +26,9 @@ begin
 	form_input.send_keys(postal_code)
 	sleep 2
 rescue Selenium::WebDriver::Error::NoSuchElementError
-	puts '郵便番号を入力するフォームが見つかりませんでした。ネットワーク速度が遅いかもしれません。'
-	exit
+	puts_error_message('郵便番号を入力するフォームが見つかりませんでした。ネットワーク速度が遅いかもしれません。')
 rescue => error
-	puts '原因不明のエラーです。'
-	exit
+	puts_error_message('原因不明のエラーです。')
 end
 
 begin
@@ -38,11 +36,9 @@ begin
 	address_list_first.click
 	sleep 2
 rescue Selenium::WebDriver::Error::NoSuchElementError
-	puts '郵便番号から導かれる住所が見つかりませんでした。ネットワーク速度が遅いかもしれません。もしくは郵便番号が正しくありません。'
-	exit
+	puts_error_message('郵便番号から導かれる住所が見つかりませんでした。ネットワーク速度が遅いかもしれません。もしくは郵便番号が正しくありません。')
 rescue => error
-	puts '原因不明のエラーです。'
-	exit
+	puts_error_message('原因不明のエラーです。')
 end
 
 #1時間でタイムアウト
@@ -54,19 +50,16 @@ end
 		delivery_fee = driver.find_element(:xpath, '//*[@id="wrapper"]/div[2]/div/div/div/div[2]/div/div/div/div[5]/div').text.match(/[0-9]+/)[0].to_i
 		restautant_title = driver.find_element(:xpath, '//*[@id="wrapper"]/div[2]/div/div/div/div[2]/h1').text
 	rescue Selenium::WebDriver::Error::NoSuchElementError
-		puts '配送手数料もしくはレストラン名が見つかりませんでした。ネットワーク速度が遅いかもしれません。'
-		exit
+		puts_error_message('配送手数料もしくはレストラン名が見つかりませんでした。ネットワーク速度が遅いかもしれません。')
 	rescue => error
-		puts '原因不明のエラーです。'
-		exit
+		puts_error_message('原因不明のエラーです。')
 	end	
 
 	if delivery_fee <= want_price
 		text = "#{restautant_title}の配送手数料は#{delivery_fee}円だ！安いで！！頼むなら今や！"
 		
 		if notification_type == 'slack'
-			notifier = Slack::Notifier.new(slack_webhook_url)
-			notifier.post text: text
+			Slack::Notifier.new(slack_webhook_url).post text: text
 		elsif notification_type == 'mac'
 			system("osascript -e 'display notification \"#{text}\" with title \"UBEREATS CHEAPER\" sound name \"Ping\"'")
 		end
@@ -76,4 +69,10 @@ end
 		puts "#{restautant_title}の配送手数料は#{delivery_fee}ですね・・・。5分後に再チェックします。"
 		sleep 300
 	end
+end
+
+
+def puts_error_message(text)
+	puts text
+	exit
 end
