@@ -2,7 +2,7 @@ UBEREATS CHEAPER
 ====
 
 ## 概要
-UberEATSで指定したレストランの配送料が安くなったら教えてくれる通知アプリケーションです
+UBER EATSで指定したレストランの配送料が安くなったら教えてくれる通知アプリケーションです
 
 ## 詳細
 Rubyプログラムです。今のところMac専用です。ヘッドレスです。
@@ -13,6 +13,10 @@ Rubyプログラムです。今のところMac専用です。ヘッドレスで�
 
 (他のサービス、`windows`などは要望があれば作ろうかなと思います。)
 
+
+## デモ画像
+<img src="https://github.com/nochiraaa/ubereats_cheaper/blob/master/sample-mac.png" width="500px">
+<img src="https://github.com/nochiraaa/ubereats_cheaper/blob/master/sample-slack.png" width="500px">
 
 ## 必要なツール・ライブラリ
 - Ruby(2.3.7)
@@ -33,14 +37,12 @@ Rubyプログラムです。今のところMac専用です。ヘッドレスで�
 - 引数2 郵便番号
   - `xxx-xxxx`というフォーマットで入力してください。
 
-- 引数3 UberEATSのレストランのURL
+- 引数3 UBEREATSのレストランのURL
   - ここにはレストランの個別ページのURLを入力してください。
   - 例:https://www.ubereats.com/ja-JP/tokyo/food-delivery/%E3%82%B7-%E3%82%A2%E3%83%AC%E3%82%A4-%E6%B8%8B%E8%B0%B7246%E5%BA%97-the-alley-shibuya-246/C7X1V9lWQ5KIoPq7YYLc4A/
 
 - 引数4 希望配送手数料
   - 数字を入力してください。ここで入力した数字よりも配送手数料が低くなったら通知がきます。
-  - 2019年8月14日現在、UberEATSの配送手数料は`260円 ~ 1180円`の間で変動しているようです。
-
 
 - 引数5 slackのwebhook url
   - [https://www.sejuku.net/blog/74471](https://www.sejuku.net/blog/74471)
@@ -58,11 +60,11 @@ ruby main.rb 'slack' '107-0062' 'https://www.ubereats.com/ja-JP/tokyo/food-deliv
 
 
 ## インストール
-最初にRubyのインストールです（Macユーザーであれば最初から入っているので大丈夫ですね）
+1. Rubyのインストールです（Macユーザーであれば最初から入っているので大丈夫ですね）
 
-最初に`gem`をインストールしましょう（Macユーザーであれば最初から入っているので大丈夫ですね）
+2. `gem`をインストールしましょう（Macユーザーであれば最初から入っているので大丈夫ですね）
 
-次に`bundler`をインストールしましょう
+3. 次に`bundler`をインストールしましょう
 
 `$ gem install bundler`
 
@@ -70,12 +72,10 @@ ruby main.rb 'slack' '107-0062' 'https://www.ubereats.com/ja-JP/tokyo/food-deliv
 
 `$ bundle update`
 
-まずは必要なgemのインストールです
-
 `$ bundle install`
 
 
-Chromeドライバは以下のURLより取得できます。
+4. Chromeドライバをインストール。以下のURLより取得できます。
 
 [https://sites.google.com/a/chromium.org/chromedriver/downloads](https://sites.google.com/a/chromium.org/chromedriver/downloads)
 
@@ -84,7 +84,7 @@ Chromeドライバは以下のURLより取得できます。
 
 `$ brew install chromedriver`
 
-`Homebrew`が入っていない方はこちらからインストールを行ってください。
+`Homebrew`が入っていない方はこちらから
 
 [http://brew.sh/index_ja.html](http://brew.sh/index_ja.html)
 
