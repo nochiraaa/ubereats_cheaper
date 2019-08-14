@@ -35,7 +35,7 @@ Rubyプログラムです。今のところMac専用です。ヘッドレスで�
   - `slack`・・・slackの特定のチャンネルに通知を送ります。引数5にて`slack webhook url`が必要になります。
 
 - 引数2 郵便番号
-  - `xxx-xxxx`というフォーマットで入力してください。
+  - `xxxxxxx`というフォーマットで入力してください。
 
 - 引数3 UBEREATSのレストランのURL
   - ここにはレストランの個別ページのURLを入力してください。
@@ -52,7 +52,7 @@ Rubyプログラムです。今のところMac専用です。ヘッドレスで�
 ### コマンド例
 
 ```
-ruby main.rb 'slack' '107-0062' 'https://www.ubereats.com/ja-JP/tokyo/food-delivery/%E3%82%B7-%E3%82%A2%E3%83%AC%E3%82%A4-%E6%B8%8B%E8%B0%B7246%E5%BA%97-the-alley-shibuya-246/C7X1V9lWQ5KIoPq7YYLc4A/' 1000 'https://hooks.slack.com/services/hoge1/hoge2/hoge3'
+ruby main.rb 'slack' 1070062 'https://www.ubereats.com/ja-JP/tokyo/food-delivery/%E3%82%B7-%E3%82%A2%E3%83%AC%E3%82%A4-%E6%B8%8B%E8%B0%B7246%E5%BA%97-the-alley-shibuya-246/C7X1V9lWQ5KIoPq7YYLc4A/' 1000 'https://hooks.slack.com/services/hoge1/hoge2/hoge3'
 ```
 
 
