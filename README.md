@@ -1,8 +1,8 @@
-UBEREATS CHEAPER
+UberEATS CHEAPER
 ====
 
 ## 概要
-UBER EATSで指定したレストランの配送料が安くなったら教えてくれる通知アプリケーションです
+UberEATSで指定したレストランの配送料が安くなったら教えてくれる通知アプリケーションです
 
 ## 詳細
 Rubyプログラムです。
@@ -37,7 +37,7 @@ Rubyプログラムです。
 - 引数2 郵便番号
   - `xxxxxxx`というフォーマットで入力してください。
 
-- 引数3 UBEREATSのレストランのURL
+- 引数3 UberEATSのレストランのURL
   - ここにはレストランの個別ページのURLを入力してください。
   - 例:https://www.ubereats.com/ja-JP/tokyo/food-delivery/%E3%82%B7-%E3%82%A2%E3%83%AC%E3%82%A4-%E6%B8%8B%E8%B0%B7246%E5%BA%97-the-alley-shibuya-246/C7X1V9lWQ5KIoPq7YYLc4A/
 
