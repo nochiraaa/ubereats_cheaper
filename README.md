@@ -61,6 +61,7 @@ ruby main.rb 'slack' 1070062 'https://www.ubereats.com/ja-JP/tokyo/food-delivery
 
 ## インストール
 1. Cloneしてください
+
 `$ git clone git@github.com:nochiraaa/ubereats_cheaper.git`
 
 2. Rubyのインストールです（Macユーザーであれば最初から入っているので大丈夫ですね）
