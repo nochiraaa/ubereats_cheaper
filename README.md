@@ -61,11 +61,11 @@ ruby main.rb 'slack' '107-0062' 'https://www.ubereats.com/ja-JP/tokyo/food-deliv
 
 
 ## インストール
-最初にRubyのインストールです（Macユーザーであれば最初から入っているので大丈夫ですね）
+1. Rubyのインストールです（Macユーザーであれば最初から入っているので大丈夫ですね）
 
-最初に`gem`をインストールしましょう（Macユーザーであれば最初から入っているので大丈夫ですね）
+2. `gem`をインストールしましょう（Macユーザーであれば最初から入っているので大丈夫ですね）
 
-次に`bundler`をインストールしましょう
+3. 次に`bundler`をインストールしましょう
 
 `$ gem install bundler`
 
@@ -73,12 +73,10 @@ ruby main.rb 'slack' '107-0062' 'https://www.ubereats.com/ja-JP/tokyo/food-deliv
 
 `$ bundle update`
 
-まずは必要なgemのインストールです
-
 `$ bundle install`
 
 
-Chromeドライバは以下のURLより取得できます。
+4. Chromeドライバをインストール。以下のURLより取得できます。
 
 [https://sites.google.com/a/chromium.org/chromedriver/downloads](https://sites.google.com/a/chromium.org/chromedriver/downloads)
 
