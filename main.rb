@@ -1,5 +1,5 @@
 require 'selenium-webdriver'
-# require 'rb-readline'
+require 'slack-notifier'
 require 'pry'
 
 notification_type = ARGV[0] || 'mac'
@@ -45,7 +45,6 @@ sleep 2
 		text = "#{Time.now.strftime('%H:%M')}の#{restautant_title}の配送手数料は#{delivery_fee}円だ！安いで！！頼むなら今や！"
 		
 		if notification_type == "slack"
-			require 'slack-notifier'
 			notifier = Slack::Notifier.new(slack_webhook_url, channel: slack_channel_name)
 			notifier.post text: text
 		elsif notification_type == "mac"

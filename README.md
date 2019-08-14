@@ -1,13 +1,11 @@
 UBEREATS CHEAPER
 ====
 
-[参考](https://deeeet.com/writing/2014/07/31/readme/)
-
 Overview
 UBER EATSで指定したレストランの配送料が安くなったら教えてくれる通知アプリケーションです
 
 ## Description
-Rubyプログラムです。Mac専用です。
+Rubyプログラムです。今のところMac専用です。ヘッドレスです。
 引数に
 - お届け先住所の郵便番号
 - レストランの個別ページのURL
@@ -20,37 +18,37 @@ Rubyプログラムです。Mac専用です。
 
 
 ## Requirement
-Ruby(2.3.7)
-bundler(2.0.2)
-gem(2.5.2.3)
-selenium-webdriver(3.142.3)
-chrome webdriver(ChromeDriver 76.0.3809.68 (420c9498db8ce8fcd190a954d51297672c1515d5-refs/branch-heads/3809@{#864}))
+- Ruby(2.3.7)
+- bundler(2.0.2)
+- gem(2.5.2.3)
+- selenium-webdriver(3.142.3)
+- chrome webdriver(ChromeDriver 76.0.3809.68 (420c9498db8ce8fcd190a954d51297672c1515d5-refs/branch-heads/3809@{#864}))
 
 
 ## Usage
 ruby main.rb 引数1 引数2 引数3 引数4 引数5
 
-引数1は通知方法
-`mac`（デフォルト）・・・macの通知センターから通知を送ります。画面右上からぴょこっと出てきます。
-`slack`・・・slackの特定のチャンネルに通知を送ります。引数5にて`slack webhook url`が必要になります。
+- 引数1
+  - 通知方法
+  - `mac`（デフォルト）・・・macの通知センターから通知を送ります。画面右上からぴょこっと出てきます。
+  - `slack`・・・slackの特定のチャンネルに通知を送ります。引数5にて`slack webhook url`が必要になります。
 
-引数2は郵便番号
-`xxx-xxxx`というフォーマットで入力してください。
+- 引数2は郵便番号
+  - `xxx-xxxx`というフォーマットで入力してください。
 
-引数3 UBEREATSのレストランのURL
-ここにはレストランの個別ページのURLを入力してください。
+- 引数3 UBEREATSのレストランのURL
+  - ここにはレストランの個別ページのURLを入力してください。
 
-引数4は希望配送手数料
-数字を入力してください。ここで入力した数字よりも配送手数料が低くなったら通知がきます。
+- 引数4は希望配送手数料
+  - 数字を入力してください。ここで入力した数字よりも配送手数料が低くなったら通知がきます。
 
-引数5 slackのwebhook url
-[https://www.sejuku.net/blog/74471](https://www.sejuku.net/blog/74471)
-こちらを参考に、webhook urlを取得してください。
-一応このwebhook urlは後々削除されるとのことなので、
-反響があれば後々新しい方に切り替えようと思います。
+- 引数5 slackのwebhook url
+  - [https://www.sejuku.net/blog/74471](https://www.sejuku.net/blog/74471)
+  - こちらを参考に、webhook urlを取得してください。一応このwebhook urlは後々削除されるとのことなので、反響があれば後々新しい方に切り替えようと思います。
 
 
 コマンド例
+
 ruby main.rb 'slack' '107-0062' 'https://www.ubereats.com/ja-JP/tokyo/food-delivery/%E3%82%B7-%E3%82%A2%E3%83%AC%E3%82%A4-%E6%B8%8B%E8%B0%B7246%E5%BA%97-the-alley-shibuya-246/C7X1V9lWQ5KIoPq7YYLc4A/' 1000 'https://hooks.slack.com/services/hoge1/hoge2/hoge3'
 
 
@@ -85,11 +83,7 @@ Chromeドライバのバージョンは最新のものであれば問題なく�
 
 
 ## Contribution
-1. Fork it ( http:// )
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create new Pull Request
+ご自由にどうぞ
 
 ## Licence
 
