@@ -7,8 +7,9 @@ WAIT_TIME = 2
 PROGRAM_TIME_OUT = 2
 UBEREATS_TOP_URL = 'https://www.ubereats.com/ja-JP/tokyo/'
 UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+DEFAULT_ERROR_MESSAGE = '原因不明のエラーです。'
 
-def exit_with_error(text)
+def exit_with_error(text = DEFAULT_ERROR_MESSAGE)
   puts text
   exit 1
 end
@@ -31,7 +32,7 @@ end
 # 初期値設定
 notification_type = ARGV[0] || 'mac'
 if notification_type.match(/\A(slack|mac)+\z/).nil?
-  exit_with_error("'slack' or 'mac'を入力して下さい")
+  exit_with_error('"slack" or "mac"を入力して下さい')
 end
 postal_code = ARGV[1] || '1070062'
 want_price = ARGV[2] || 1000
@@ -63,7 +64,7 @@ begin
 rescue Selenium::WebDriver::Error::NoSuchElementError
   exit_with_error('郵便番号を入力するフォームが見つかりませんでした。ネットワーク速度が遅いかもしれません。')
 rescue StandardError
-  exit_with_error('原因不明のエラーです。')
+  exit_with_error
 end
 
 begin
@@ -73,7 +74,7 @@ begin
 rescue Selenium::WebDriver::Error::NoSuchElementError
   exit_with_error('郵便番号から導かれる住所が見つかりませんでした。ネットワーク速度が遅いかもしれません。もしくは郵便番号が正しくありません。')
 rescue StandardError
-  exit_with_error('原因不明のエラーです。')
+  exit_with_error
 end
 
 12.times do # 1時間でタイムアウト
@@ -89,7 +90,7 @@ end
   rescue Selenium::WebDriver::Error::NoSuchElementError
     exit_with_error('配送手数料もしくはレストラン名が見つかりませんでした。ネットワーク速度が遅いかもしれません。')
   rescue StandardError
-    exit_with_error('原因不明のエラーです。')
+    exit_with_error
   end
 
   if delivery_fee <= want_price
