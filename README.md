@@ -22,15 +22,14 @@ html要素はcssセレクターで取得していますが、html構造が変わ
 
 ## 必要なツール・ライブラリ
 - Ruby(2.6.3)
-- gem(2.5.2.3)
-- bundler(2.0.2)
-- selenium-webdriver(3.142.3)
-- slack-notifier(2.3.2)
 - chrome webdriver(ChromeDriver 76.0.3809.68 (420c9498db8ce8fcd190a954d51297672c1515d5-refs/branch-heads/3809@{#864}))
 
 
 ## 使い方
-`$ bundle exec ruby ubereats_cheaper.rb [通知方法] [郵便番号] [UberEATSのお店のURL] [希望配送手数料] [Slackのwebhook url オプション引数]`
+
+```
+$ bundle exec ruby ubereats_cheaper.rb [通知方法] [郵便番号] [UberEATSのお店のURL] [希望配送手数料] [Slackのwebhook url オプション引数]
+```
 
 - 引数1 通知方法
   - `mac`（デフォルト）・・・macの通知センターから通知を送ります。画面右上からぴょこっと出てきます。
@@ -63,20 +62,11 @@ bundle exec ruby ubereats_cheaper.rb 'slack' 1070062 'https://www.ubereats.com/j
 
 ## インストール
 
-1. cloneしてください
+1. このリポジトリをcloneしてください
 
 `$ git clone git@github.com:nochiraaa/ubereats_cheaper.git`
 
-2. 次に`bundler`をインストールしましょう
-
-`$ gem install bundler`
-
-`bundle`を最新のバージョンにしておきましょう。
-
-`$ bundle update`
-
-`$ bundle exec install`
-
+2. `$ bundle install`を実行
 
 3. Chromeドライバをインストール。以下のURLより取得できます。
 
