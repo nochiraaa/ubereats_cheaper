@@ -5,7 +5,7 @@ UberEATS CHEAPER
 UberEATSで指定したお店の配送料が安くなったら教えてくれる通知アプリケーションです
 
 ## 詳細
-Rubyプログラムです。
+Rubyツールです。
 
 アクセス負荷がかからないくらいで5分おきにデータを取得し、安くなったかどうかを判断しています。
 
@@ -13,13 +13,15 @@ Rubyプログラムです。
 
 (他のサービス、`Windows`などは反響があれば作ろうかなと思います。)
 
+html要素はcssセレクターで取得していますが、html構造が変わったらこの
+ツールは使えなくなるかもしれません。ご了承くださいませ。
 
 ## デモ画像
 <img src="https://github.com/nochiraaa/ubereats_cheaper/blob/master/sample-mac.png" width="500px">
 <img src="https://github.com/nochiraaa/ubereats_cheaper/blob/master/sample-slack.png" width="500px">
 
 ## 必要なツール・ライブラリ
-- Ruby(2.3.7)
+- Ruby(2.6.3)
 - gem(2.5.2.3)
 - bundler(2.0.2)
 - selenium-webdriver(3.142.3)
