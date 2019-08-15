@@ -27,9 +27,7 @@ html要素はcssセレクターで取得していますが、html構造が変わ
 
 ## 使い方
 
-```
-$ bundle exec ruby ubereats_cheaper.rb [通知方法] [郵便番号] [UberEATSのお店のURL] [希望配送手数料] [Slackのwebhook url オプション引数]
-```
+`$ bundle exec ruby ubereats_cheaper.rb [通知方法] [郵便番号] [UberEATSのお店のURL] [希望配送手数料] [Slackのwebhook url オプション引数]`
 
 - 引数1 通知方法
   - `mac`（デフォルト）・・・macの通知センターから通知を送ります。画面右上からぴょこっと出てきます。
@@ -52,9 +50,7 @@ $ bundle exec ruby ubereats_cheaper.rb [通知方法] [郵便番号] [UberEATS�
 
 ### コマンド例
 
-```
-bundle exec ruby ubereats_cheaper.rb 'slack' 1070062 'https://www.ubereats.com/ja-JP/tokyo/food-delivery/%E3%82%B7-%E3%82%A2%E3%83%AC%E3%82%A4-%E6%B8%8B%E8%B0%B7246%E5%BA%97-the-alley-shibuya-246/C7X1V9lWQ5KIoPq7YYLc4A/' 1000 'https://hooks.slack.com/services/hoge1/hoge2/hoge3'
-```
+`bundle exec ruby ubereats_cheaper.rb 'slack' 1070062 'https://www.ubereats.com/ja-JP/tokyo/food-delivery/%E3%82%B7-%E3%82%A2%E3%83%AC%E3%82%A4-%E6%B8%8B%E8%B0%B7246%E5%BA%97-the-alley-shibuya-246/C7X1V9lWQ5KIoPq7YYLc4A/' 1000 'https://hooks.slack.com/services/hoge1/hoge2/hoge3'`
 
 
 なお、`bundle exec ruby ubereats_cheaper.rb`だけで実行すると、`mac`で、自分が最近よくいる`南青山`へ、大好きな`渋谷のジ アレイ（有名なタピオカミルクティーのお店）`の配送手数料が`1000円`（1000円より安くなることが割と少ない）よりも安くなった時に通知が来るようになっています。
