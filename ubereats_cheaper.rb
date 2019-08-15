@@ -19,7 +19,7 @@ end
 def catch_cant_order(driver)
   return unless cant_order?(driver)
 
-  exit_with_error(driver.find_element(:xpath, '//*[@id="wrapper"]/div[2]/div/div/div[3]/div/div'))
+  exit_with_error(driver.find_element(:css, '#wrapper div.az.b0.b1.d7.d8.b4').text)
 end
 
 def send_notification(text, notification_type, slack_webhook_url = nil)
@@ -53,7 +53,7 @@ end
 
 # (Selenium 4 & Chrome <75)の記法
 ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
-options_args = { args: ['disable-gpu', 'no-sandbox', 'disable-setuid-sandbox', 'disable-gpu', "user-agent=#{ua}"] }
+options_args = { args: ['headless', 'disable-gpu', 'no-sandbox', 'disable-setuid-sandbox', 'disable-gpu', "user-agent=#{ua}"] }
 options = Selenium::WebDriver::Chrome::Options.new(options: options_args)
 driver = Selenium::WebDriver.for :chrome, options: options
 driver.manage.timeouts.implicit_wait = 2 # タイムアウトの秒数を設定
