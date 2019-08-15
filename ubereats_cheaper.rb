@@ -25,6 +25,7 @@ def send_notification(text, notification_type, slack_webhook_url = nil)
   if notification_type == 'slack'
     Slack::Notifier.new(slack_webhook_url).post text: text
   else
+    text.gsub!(/[\!\"\$\&\'\(\)\*\,\:\;\<\=\>\?\[\\\]\^\`\{\|\}\t ]/, '\\\\\\&')
     system("osascript -e 'display notification \"#{text}\" with title \"UberEATS CHEAPER\" sound name \"Ping\"'")
   end
 end
