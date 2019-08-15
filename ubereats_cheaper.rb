@@ -19,7 +19,7 @@ end
 def catch_cant_order(driver)
   return unless cant_order?(driver)
 
-  exit_with_error(driver.find_element(:css, '#wrapper div.az.b0.b1.d7.d8.b4').text)
+  exit_with_error(driver.find_element(:xpath, '//*[@id="wrapper"]/div[2]/div/div/div[3]/div/div'))
 end
 
 def send_notification(text, notification_type, slack_webhook_url = nil)
@@ -63,7 +63,7 @@ sleep 2
 
 # お届け先を設定
 begin
-  form_input = driver.find_element(:css, '#wrapper div.b0.b1.b2.bg.bh.bi.bj.bk.eb.ae.aj.bl.bm.bn.ba.af.ai input')
+  form_input = driver.find_element(:xpath, '//*[@id="wrapper"]/div/div[1]/div/div/div/div/div[2]/div/div/div/input')
   form_input.send_keys(postal_code)
   sleep 2
 rescue Selenium::WebDriver::Error::NoSuchElementError
@@ -73,7 +73,7 @@ rescue StandardError
 end
 
 begin
-  address_list_first = driver.find_element(:css, '#wrapper ul.eo.as.fk.at.aw.fl.f6.fm button:first-child')
+  address_list_first = driver.find_element(:xpath, '//*[@id="wrapper"]/div/div[1]/div/div/div/div/div[2]/div/div/ul/button[1]')
   address_list_first.click
   sleep 2
 rescue Selenium::WebDriver::Error::NoSuchElementError
@@ -88,8 +88,8 @@ end
   catch_cant_order(driver)
 
   begin
-    delivery_fee = driver.find_element(:css, '#wrapper div:nth-child(2) div.ar.c7.cn.co.bu.cp.af.aj div.az.b0.c0.bl.bm.b7.bk.cz.c2.ar.bp.au.ba.d0:last-child div')
-    restautant_title = driver.find_element(:css, 'h1')
+    delivery_fee = driver.find_element(:xpath, '//*[@id="wrapper"]/div[2]/div/div/div/div[2]/div/div/div/div[5]/div').text.match(/[0-9]+/)[0].to_i
+    restautant_title = driver.find_element(:css, 'h1').text
   rescue Selenium::WebDriver::Error::NoSuchElementError
     exit_with_error('配送手数料もしくはレストラン名が見つかりませんでした。ネットワーク速度が遅いかもしれません。')
   rescue StandardError
