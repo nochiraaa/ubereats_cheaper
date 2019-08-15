@@ -2,7 +2,7 @@
 
 require 'selenium-webdriver'
 require 'slack-notifier'
-require 'pry'
+# require 'pry'
 
 def exit_with_error(text)
   puts text
@@ -18,6 +18,7 @@ end
 
 def catch_cant_order(driver)
   return unless cant_order?(driver)
+
   exit_with_error(driver.find_element(:css, '#wrapper div.az.b0.b1.d7.d8.b4').text)
 end
 
@@ -72,7 +73,6 @@ rescue StandardError
 end
 
 begin
-  # address_list_first = driver.find_element(:xpath, '//*[@id="wrapper"]/div/div[1]/div/div/div/div/div[2]/div/div/ul/button[1]')
   address_list_first = driver.find_element(:css, '#wrapper ul.eo.as.fk.at.aw.fl.f6.fm button:first-child')
   address_list_first.click
   sleep 2
@@ -86,10 +86,8 @@ end
   driver.navigate.to restaurant_url
 
   catch_cant_order(driver)
-  # document.querySelector("#wrapper > div:nth-child(2) > div > div > div.ar.c7.cn.co.bu.cp.af.aj > div:nth-child(2) > div > div > div > div:nth-child(5) > div")
-  # document.querySelector("#wrapper div:nth-child(2) div.ar.c7.cn.co.bu.cp.af.aj > div.az.b0.c0.bl.bm.b7.bk.cz.c2.ar.bp.au.ba.d0:last-child > div")
+
   begin
-    binding.pry
     delivery_fee = driver.find_element(:css, '#wrapper div:nth-child(2) div.ar.c7.cn.co.bu.cp.af.aj div.az.b0.c0.bl.bm.b7.bk.cz.c2.ar.bp.au.ba.d0:last-child div')
     restautant_title = driver.find_element(:css, 'h1')
   rescue Selenium::WebDriver::Error::NoSuchElementError
