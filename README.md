@@ -2,7 +2,7 @@ UberEATS CHEAPER
 ====
 
 ## 概要
-UberEATSで指定したレストランの配送料が安くなったら教えてくれる通知アプリケーションです
+UberEATSで指定したお店の配送料が安くなったら教えてくれる通知アプリケーションです
 
 ## 詳細
 Rubyプログラムです。
@@ -11,7 +11,7 @@ Rubyプログラムです。
 
 通知方法は`Slack`と`Mac OS`の2つに対応しています。
 
-(他のサービス、`windows`などは反響があれば作ろうかなと思います。)
+(他のサービス、`Windows`などは反響があれば作ろうかなと思います。)
 
 
 ## デモ画像
@@ -28,17 +28,17 @@ Rubyプログラムです。
 
 
 ## 使い方
-`$ ruby main.rb 引数1 引数2 引数3 引数4 引数5`
+`$ bundle exec ruby ubereats_cheaper.rb [通知方法] [郵便番号] [UberEATSのお店のURL] [希望配送手数料] [Slackのwebhook url オプション引数]`
 
 - 引数1 通知方法
   - `mac`（デフォルト）・・・macの通知センターから通知を送ります。画面右上からぴょこっと出てきます。
-  - `slack`・・・slackの特定のチャンネルに通知を送ります。引数5にて`slack webhook url`が必要になります。
+  - `slack`・・・Slackの特定のチャンネルに通知を送ります。引数5にて`slack webhook url`が必要になります。
 
 - 引数2 郵便番号
-  - `xxxxxxx`というフォーマットで入力してください。
+  - `[0-9]{6}`のフォーマットで入力してください。
 
-- 引数3 UberEATSのレストランのURL
-  - ここにはレストランの個別ページのURLを入力してください。
+- 引数3 UberEATSのお店のURL
+  - ここにはお店の個別ページのURLを入力してください。
   - 例:https://www.ubereats.com/ja-JP/tokyo/food-delivery/%E3%82%B7-%E3%82%A2%E3%83%AC%E3%82%A4-%E6%B8%8B%E8%B0%B7246%E5%BA%97-the-alley-shibuya-246/C7X1V9lWQ5KIoPq7YYLc4A/
 
 - 引数4 希望配送手数料
@@ -52,24 +52,20 @@ Rubyプログラムです。
 ### コマンド例
 
 ```
-ruby main.rb 'slack' 1070062 'https://www.ubereats.com/ja-JP/tokyo/food-delivery/%E3%82%B7-%E3%82%A2%E3%83%AC%E3%82%A4-%E6%B8%8B%E8%B0%B7246%E5%BA%97-the-alley-shibuya-246/C7X1V9lWQ5KIoPq7YYLc4A/' 1000 'https://hooks.slack.com/services/hoge1/hoge2/hoge3'
+bundle exec ruby ubereats_cheaper.rb 'slack' 1070062 'https://www.ubereats.com/ja-JP/tokyo/food-delivery/%E3%82%B7-%E3%82%A2%E3%83%AC%E3%82%A4-%E6%B8%8B%E8%B0%B7246%E5%BA%97-the-alley-shibuya-246/C7X1V9lWQ5KIoPq7YYLc4A/' 1000 'https://hooks.slack.com/services/hoge1/hoge2/hoge3'
 ```
 
 
-なお、`ruby main.rb`だけで実行すると、`slack`で、自分が最近よくいる`南青山`へ、大好きな`渋谷のジ アレイ（有名なタピオカミルクティーのお店）`の配送手数料が`1000円`（1000円より安くなることが割と少ない）よりも安くなった時に通知が来るようになっています。
+なお、`bundle exec ruby ubereats_cheaper.rb`だけで実行すると、`mac`で、自分が最近よくいる`南青山`へ、大好きな`渋谷のジ アレイ（有名なタピオカミルクティーのお店）`の配送手数料が`1000円`（1000円より安くなることが割と少ない）よりも安くなった時に通知が来るようになっています。
 
 
 ## インストール
 
-1. Cloneしてください
+1. cloneしてください
 
 `$ git clone git@github.com:nochiraaa/ubereats_cheaper.git`
 
-2. Rubyのインストールです（Macユーザーであれば最初から入っているので大丈夫ですね）
-
-3. `gem`をインストールしましょう（Macユーザーであれば最初から入っているので大丈夫ですね）
-
-4. 次に`bundler`をインストールしましょう
+2. 次に`bundler`をインストールしましょう
 
 `$ gem install bundler`
 
@@ -77,10 +73,10 @@ ruby main.rb 'slack' 1070062 'https://www.ubereats.com/ja-JP/tokyo/food-delivery
 
 `$ bundle update`
 
-`$ bundle install`
+`$ bundle exec install`
 
 
-5. Chromeドライバをインストール。以下のURLより取得できます。
+3. Chromeドライバをインストール。以下のURLより取得できます。
 
 [https://sites.google.com/a/chromium.org/chromedriver/downloads](https://sites.google.com/a/chromium.org/chromedriver/downloads)
 
@@ -104,7 +100,7 @@ Chromeドライバのバージョンは最新のものであれば問題なく�
 
 ## ライセンス
 
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
+[MIT](https://github.com/nochiraaa/ubereats_cheaper/blob/master/LICENSE.txt)
 
 ## 著者
 
