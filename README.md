@@ -62,7 +62,7 @@ html要素はcssセレクターで取得していますが、html構造が変わ
 
 `$ git clone git@github.com:nochiraaa/ubereats_cheaper.git`
 
-2. `$ bundle install`を実行
+2. `$ bundle install --path vendor/bundle`を実行
 
 3. Chromeドライバをインストール。以下のURLより取得できます。
 
